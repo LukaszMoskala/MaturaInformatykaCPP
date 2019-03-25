@@ -27,7 +27,7 @@ int main()
   ifstream f;
   f.open("dane.txt");
   if(!f.is_open())
-  return 1;
+    return 1;
   string s;
   while(f.good()) {
     f>>s;
@@ -76,8 +76,10 @@ int main()
     if(ok) {
       c++;
       unsigned long long int tmp=strtoull(dane[i].c_str(),NULL,8);
-      if(tmp > maxv) maxv=tmp;
-      if(tmp < minv) minv=tmp;
+      if(tmp > maxv)
+        maxv=tmp;
+      if(tmp < minv)
+        minv=tmp;
     }
   }
 
