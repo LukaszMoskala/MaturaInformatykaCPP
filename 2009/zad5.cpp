@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 struct para_t {
   string a;
@@ -17,7 +19,7 @@ bool palindrom(const string &s) {
 
 int main() {
   ifstream plik;
-  plik.open("Dane/dane.txt");
+  plik.open("dane.txt");
   if(!plik.is_open())
     return 1;
   while(plik.good()) {
@@ -48,5 +50,35 @@ int main() {
   //działało jak najwolniej. Jest to swojego rodzaju trening pisania złego kodu
   //wszystko sprawdzane jest metodą brute-force xD
 
-  //TODO: dopisz reszte XD
+  int podpunkt_c=0;
+
+  ofstream podpunkt_d;
+  podpunkt_d.open("slowa.txt");
+
+  char buf[64];
+  for(uint32_t i=0;i<pary.size();i++) {
+    //będzie troche dojenia więc wyciągamy sobie 1 element z tablicy
+    para_t p=pary[i];
+    string dobre=p.b+p.a;
+    //łoooo tutaj będziemy robić rzeczy xD
+    for(uint32_t i=16-p.b.size();i<16+p.a.size();i++) {
+      memset(buf,' ', sizeof(buf));
+      buf[sizeof(buf)-1]=0;
+      strncpy(&buf[16],p.a.c_str(),p.a.size());
+      strncpy(&buf[i],p.b.c_str(),p.b.size());
+      string out(buf);
+      if(out.find(p.a) != string::npos && out.find(p.b) != string::npos) {
+        //usuń te spacje ze stringa
+        std::string::iterator end_pos = remove(out.begin(), out.end(), ' ');
+        out.erase(end_pos, out.end());
+        //jak jest krótszy od tego co mamy to zapisz go
+        if(out.size() < dobre.size())
+          dobre = out;
+      }
+    }
+    podpunkt_c+=(dobre.size() == p.a.size()+p.b.size());
+    podpunkt_d<<dobre<<endl;
+  }
+  cout<<"[C] Istnieje "<<podpunkt_c<<" takich par"<<endl;
+  podpunkt_d.close();
 }
