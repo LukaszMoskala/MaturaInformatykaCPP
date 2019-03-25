@@ -41,8 +41,7 @@ int main()
   int a=0;
   for(uint32_t i=0;i<dane.size();i++) {
     uint32_t ost=dane[i].length()-1;
-    if(dane[i][0] == dane[i][ost])
-      a++;
+    a+=(dane[i][0] == dane[i][ost]);
   }
   cout<<"[A] "<<a<<endl;
   //Podpunkt B:
@@ -56,8 +55,7 @@ int main()
     ss<<dec;
     string s=ss.str();
     int ost=s.length()-1;
-    if(s[0] == s[ost])
-      b++;
+    b+=(s[0] == s[ost]);
   }
   cout<<"[B] "<<b<<endl;
   //podpunkt C:
@@ -70,8 +68,7 @@ int main()
     bool ok=true;
     for(uint32_t j=1;ok && j<dane[i].length();j++) {
       //porówniania na stringach bo można xD
-      if(dane[i][j] < dane[i][j-1])
-        ok=false;
+      ok=(dane[i][j] >= dane[i][j-1]);
     }
     if(ok) {
       c++;
