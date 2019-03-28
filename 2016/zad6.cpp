@@ -82,6 +82,13 @@ int main() {
     string sz;
     f>>tj;
     f>>sz;
+    //pod względem złożoności obliczeniowej ten kod to tragedia
+    //na szczęście na maturze tego nie oceniają xD
+    //w rzeczywistości, jeżeli twój program uruchomisz tylko raz
+    //bo służy do rozwiązania tylko jednego konkretnego problemu
+    //jest to ok. Ale jak twój program będzie włączony ciągle,
+    //optymalizacja staje się bardzo ważna. Tutaj na szczęście jest
+    //ten pierwszy przypadek
     for(uint32_t j=1;j<tj.size();j++) {
       if(odzyskajklucz(tj.substr(j,1),sz.substr(j,1)) !=
          odzyskajklucz(tj.substr(j-1,1),sz.substr(j-1,1)) ) {
