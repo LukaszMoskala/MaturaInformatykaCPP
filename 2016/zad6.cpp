@@ -84,7 +84,7 @@ int main() {
     f>>sz;
     for(uint32_t j=1;j<tj.size();j++) {
       if(odzyskajklucz(tj.substr(j,1),sz.substr(j,1)) !=
-        odzyskajklucz(tj.substr(j-1,1),sz.substr(j-1,1)) ) {
+         odzyskajklucz(tj.substr(j-1,1),sz.substr(j-1,1)) ) {
         o<<tj<<endl;
         break;
       }
