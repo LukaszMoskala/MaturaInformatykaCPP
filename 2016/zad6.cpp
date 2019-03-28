@@ -17,8 +17,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <iostream>
 #include <fstream>
 using namespace std;
-
+//jak klucz jest ujemny to funkcja odszyfrowywuje
+//łatwiej było tak zrobić niż pisać osobną funkcje
 string szyfruj(const string& dane, int klucz) {
+  //jeżeli to usuniemy, trzeba zmienić w tej funkcji IFy na WHILE
+  //jednak to rozwiązanie jest bardziej optymalne pod względem złożoności
+  //obliczeniowej
   klucz%=26; //usuwamy pętle z klucza
   string ret="";
   for(uint32_t i=0;i<dane.size();i++) {
