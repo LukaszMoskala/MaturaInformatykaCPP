@@ -62,7 +62,7 @@ int main()
   for(int i=0;i<1000;i++) {
     memset(litery, 0, sizeof(litery));
     for(uint32_t j=0;j<sygnaly[i].size();j++) {
-      litery[sygnaly[i][j]]++;
+      litery[int(sygnaly[i][j])]++;
     }
     int ile=0;
     for(int i=0;i<256;i++)

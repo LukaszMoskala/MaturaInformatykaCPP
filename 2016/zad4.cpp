@@ -69,10 +69,7 @@ int main()
 
   //dodatkowo, wyliczane są tu rzeczy potrzebne do następnego podpunktu
 
-  int w_kole=0;
-  int w_kole_1k=0;
-  int w_kole_5k=0;
-  int na_okregu=0;
+  uint32_t na_okregu=0;
   cout<<"[4.1] Na okręgu: "<<endl;
   for(int i=0;i<10000;i++) {
     if( ((punkty[i].x - 200)*(punkty[i].x - 200) +
