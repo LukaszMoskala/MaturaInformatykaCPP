@@ -40,6 +40,11 @@ int supersumakozakwogolesuperfajne() {
   }
   return max;
 }
+//złożoność obliczeniowa tego syfu to n^2 lub n^3.
+//Arkusz z odpowiedziami wspomina możliwość stworzenia algorytmu o złożoności
+//znacznie lepszej niż n^2
+//ja nie będę próbował tego robić, ale jak ktoś ma pomysł, spróbuj i stwórz
+//pull request jak się uda
 int najpopularniejsze() {
   memset(ilosci, 0, sizeof(ilosci));
   for(uint32_t i=0;i<ciag.size();i++) {
@@ -81,7 +86,7 @@ int main() {
   cout<<"#  i5-4670k @ 4.9GHz - 5 minut 36 sekund  -  ostrzegałem            #"<<endl;
   cout<<"#####################################################################"<<endl;
   cout<<endl;
-  
+
   zaladowawszy("dane5-1.txt");
   cout<<"5.1 "<<supersumakozakwogolesuperfajne()<<" "<<najpopularniejsze()<<endl;
   ciag.erase(ciag.begin(), ciag.end());
