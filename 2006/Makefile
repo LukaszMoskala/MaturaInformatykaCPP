@@ -1,10 +1,13 @@
 CXX=g++
 CXXFLAGS=--std=c++17 -Wall
-all: zad6
 
-zad6.o: zad6.cpp
-	$(CXX) $(CXXFLAGS) -c -o zad6.o zad6.cpp
-zad6: zad6.o
-	$(CXX) $(CXXFLAGS) -o zad6 zad6.o
+BINARKI=zad6
+
+all: $(BINARKI)
+
+$(BINARKI).o: $(BINARKI).cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $^
+$(BINARKI): $(BINARKI).o
+	$(CXX) $(CXXFLAGS) -o $@ $^
 clean:
 	rm -f *.o

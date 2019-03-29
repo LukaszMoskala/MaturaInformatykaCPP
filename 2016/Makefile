@@ -1,5 +1,8 @@
 CXX=g++
 CXXFLAGS=--std=c++17 -Wall
+
+#tu są 2 binarki więc uniwersalny makefile nie zadziała!
+
 all: zad4 zad6
 
 zad4.o: zad4.cpp
