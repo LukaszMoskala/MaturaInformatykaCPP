@@ -82,20 +82,19 @@ int main()
   //oddalone są od siebie w alfabecie co najwyżej o 10. Słowa wypisz w
   //kolejności występowania w pliku sygnaly.txt, po jednym w wierszu.
 
-  cout<<"[4.3]\t";
+  cout<<"[4.3]";
   for(int i=0;i<1000;i++) {
     bool ok=true;
     string s=sygnaly[i];
-    for(uint32_t j=1;(j<s.size()) && ok;j++) {
-      int l0=s[j-1];
-      int l1=s[j];
-      ok=(abs(l1-l0) <= 10);
+    for(uint32_t j=0;(j<s.size()) && ok;j++) {
+      for(uint32_t k=0;k<s.size() && ok;k++) {
+        int l0=s[j];
+        int l1=s[k];
+        ok=(abs(l1-l0) <= 10);
+      }
     }
     if(ok)
       cout<<"\t"<<sygnaly[i]<<endl;
   }
-  cout<<"UWAGA: ZADANIE [4.3] PRODUKUJE WYNIK NIEZGODNY Z TYM CO JEST W ODPOWIEDZIACH"<<endl;
-  cout<<"       ale no nie widze jak inaczej może to być, jak znalazłeś mój błąd - "<<endl;
-  cout<<"       stwórz pull request z poprawką"<<endl;
 
 }
