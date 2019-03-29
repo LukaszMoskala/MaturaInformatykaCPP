@@ -52,7 +52,14 @@ int sumadec(uint32_t l) {
   return ile;
 }
 int main() {
-
+  cout<<"Copyright (C) 2019 Łukasz Konrad Moskała ukasz_moskala8@tlen.pl"<<endl;
+  cout<<"This program comes with ABSOLUTELY NO WARRANTY."<<endl;
+  cout<<"This is free software, and you are welcome to redistribute it"<<endl;
+  cout<<"under certain conditions; Read attached license file for details."<<endl;
+  cout<<endl;
+  cout<<"You should have received a copy of the GNU General Public License"<<endl;
+  cout<<"along with this program.  If not, see <https://www.gnu.org/licenses/>."<<endl;
+  cout<<endl;
   cout<<"UWAGA: ja się długo wykonuje!"<<endl;
 
   //5a
