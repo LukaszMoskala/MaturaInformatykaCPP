@@ -15,6 +15,8 @@ cd 2009
 make all clean
 ./zad5
 ```
+Możesz też skompilować wszystkie programy na raz, po prostu w głównym folderze
+użyj `make` :)
 # Pliki z danymi
 Oryginalne pliki z danymi dostępne są na stronie CKE. Te pliki których używają
 programy, są zawarte w repozytorium. Samych arkuszy i odpowiedzi tutaj nie dam
