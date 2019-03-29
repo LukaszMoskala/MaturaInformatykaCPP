@@ -22,6 +22,8 @@ string napisy[1000];
 
 //nieoptymalna funkcja sprawdzająca czy liczba jest pierwsza
 bool prime(int num) {
+  if(num == 1)
+    return false;
   for(int i=2;i<num;i++) {
     if(num%i == 0)
       return false;
