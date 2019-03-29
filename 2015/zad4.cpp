@@ -72,8 +72,8 @@ int main() {
   //to NIE JEST to samo co największa i najmniejsza
   //ale zawęzi obszar poszukiwań
 
-  int dnm=250;
-  int dnw=0;
+  uint32_t dnm=250;
+  uint32_t dnw=0;
 
   for(int i=0;i<1000;i++) {
     if(liczby[i].size() > dnw)
@@ -88,7 +88,7 @@ int main() {
 
   //to jest złe, ale działa, więc w sumie nie jest złe
   memset(zle,0,sizeof(zle));
-  for(int i=0;i<dnw;i++) {
+  for(uint32_t i=0;i<dnw;i++) {
     bool czy_wogole_na_tej_pozycji_sa_jedynki=false;
     for(int j=0;j<1000 && !czy_wogole_na_tej_pozycji_sa_jedynki;j++) {
       if(!zle[j] && liczby[j].size() == dnw) {
@@ -111,7 +111,7 @@ int main() {
   }
   //i to samo dla najmneijszej
   memset(zle,0,sizeof(zle));
-  for(int i=0;i<dnm;i++) {
+  for(uint32_t i=0;i<dnm;i++) {
     bool czy_wogole_na_tej_pozycji_sa_zera=false;
     for(int j=0;j<1000 && !czy_wogole_na_tej_pozycji_sa_zera;j++) {
       if(!zle[j] && liczby[j].size() == dnm) {
