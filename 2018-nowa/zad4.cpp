@@ -87,7 +87,7 @@ int main()
     bool ok=true;
     string s=sygnaly[i];
     for(uint32_t j=0;(j<s.size()) && ok;j++) {
-      for(uint32_t k=0;k<s.size() && ok;k++) {
+      for(uint32_t k=j+1;k<s.size() && ok;k++) {
         int l0=s[j];
         int l1=s[k];
         ok=(abs(l1-l0) <= 10);
