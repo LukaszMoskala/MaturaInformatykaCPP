@@ -5,7 +5,12 @@ polish
 Wpadłem na świetny pomysł, aby rozwiązać wszystkie zadania ze wszystkich matur
 z informatyki (a przynajmniej te które mogę rozwiązać pisząc program).
 # Kompilacja - GNU/Linux
-Po prostu uruchom `make`
+Sklonuj repozytorium, przejdź do niego, i użyj make:
+```
+make -j$(nproc) all clean
+```
+Lub, jeżeli chcesz poczekać dłużej i nie chcesz sprzątać po kompilacji, po
+prostu `make`
 # Kompilacja - Windows
 POWODZENIA
 # Pliki z danymi

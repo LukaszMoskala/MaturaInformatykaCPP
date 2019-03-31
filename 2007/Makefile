@@ -1,7 +1,14 @@
 CXX=g++
 CXXFLAGS=--std=c++17 -Wall
 
-BINARKI=zad5
+#Puste rozszerzenie dla GNU/Linux
+EXTENSION=
+#Dla windowsa .exe
+ifeq ($(OS),Windows_NT)
+    EXTENSION=.exe
+endif
+
+BINARKI=zad5$(EXTENSION)
 
 all: $(BINARKI)
 
@@ -10,4 +17,6 @@ $(BINARKI).o: $(BINARKI).cpp
 $(BINARKI): $(BINARKI).o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 clean:
-	rm -f *.o
+	rm -f zad?.o
+clean-bin:
+	rm -f zad?$(EXTENSION)
