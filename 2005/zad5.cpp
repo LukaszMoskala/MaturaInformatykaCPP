@@ -111,6 +111,9 @@ int main() {
   cout<<"#####################################################################"<<endl;
   cout<<"# TRAGICZNA ZŁOŻONOŚĆ OBLICZENIOWA PROGRAM WYKONUJE SIE BARDZO DŁUGO#"<<endl;
   cout<<"#  i5-4670k @ 4.9GHz - 5 minut 36 sekund  -  ostrzegałem            #"<<endl;
+  cout<<"# po optymalizacji na wiele wątków 'tylko' 3 minuty 14 sekund       #"<<endl;
+  cout<<"# Nauczyciel mówi że da się ten algorytm zapisać ze złożonością     #"<<endl;
+  cout<<"# liniową, ale mi się nie chce                                      #"<<endl;
   cout<<"#####################################################################"<<endl;
   cout<<endl;
 
