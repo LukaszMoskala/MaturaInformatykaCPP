@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <cstring>
 #include <vector>
 #include <sstream>
+#include <thread>
 using namespace std;
 vector<int> ciag;
 int ilosci[1000];
@@ -29,16 +30,42 @@ int sumaItself(uint32_t start, uint32_t end) {
   }
   return ret;
 }
-int supersumakozakwogolesuperfajne() {
-  int max=0;
-  for(uint32_t poczatek=0;poczatek<ciag.size();poczatek++) {
+
+void thr(uint32_t p, uint32_t o, int *max) {
+  for(uint32_t poczatek=p;poczatek<o;poczatek++) {
     for(uint32_t koniec=poczatek;koniec<ciag.size();koniec++) {
       int t=sumaItself(poczatek, koniec);
-      if(t > max)
-        max=t;
+      if(t > *max)
+        *max=t;
     }
   }
-  return max;
+}
+
+int supersumakozakwogolesuperfajne() {
+  uint n = std::thread::hardware_concurrency();
+  //uint n=1;
+  int max[n];
+  memset(max, 0, sizeof(max));
+  std::thread t[n];
+
+  //Nierównomierny rozkład obliczeń, jedne wątki wyliczają się dużo szybciej od innych
+  //ale działa lepiej niż bez wątków wogóle
+
+  //cout<<"Detected "<<n<<" concurrent threads"<<endl;
+  for(uint i=0;i<n;i++) {
+    uint32_t poczatek=(float)ciag.size()*((float)i/(float)n);
+    uint32_t ostatni=(float)ciag.size()*(((float)i+1.0)/(float)n);
+    //cout<<"Starting thread "<<i<<" with data from "<<poczatek<<" to "<<ostatni<<" of "<<ciag.size()<<endl;
+    t[i]=std::thread(thr,poczatek, ostatni, &max[i]);
+  }
+  
+  for(uint i=0;i<n;i++)
+    t[i].join();
+  int m=0;
+  for(uint i=0;i<n;i++)
+    if(max[i] > m)
+      m=max[i];
+  return m;
 }
 //złożoność obliczeniowa tego syfu to n^2 lub n^3.
 //Arkusz z odpowiedziami wspomina możliwość stworzenia algorytmu o złożoności

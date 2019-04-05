@@ -6,6 +6,10 @@ EXTENSION=
 #Dla windowsa .exe
 ifeq ($(OS),Windows_NT)
     EXTENSION=.exe
+else
+	#Na GNU/Linux musimy dołączyć biblioteke pthread żeby
+	#std::thread działało
+	CXXFLAGS+=-lpthread
 endif
 
 BINARKI=zad5$(EXTENSION)
